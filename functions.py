@@ -31,6 +31,9 @@ def df_information(df):
     return df.describe()
 
 def delete_config():
+    df = pd.read_json('config.json')
+    df['answers'] = None
+    df.to_json('config.json')
     st.success('Project Upload configurations deleted.')
 
 questions = ['Were text columns identified as numbers?','Do you need to pivot rows?','Do you need to pivot columns?',
